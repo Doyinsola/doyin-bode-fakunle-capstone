@@ -46,6 +46,8 @@ When attempting to learn a new skill, the information out there can be overwhelm
 
 ### Mockups
 
+[Link to mockups](https://www.figma.com/board/llbBH6qIP8jyZpmzIiTZNU/capstone-mockups?node-id=0-1)
+
 ### Endpoints
 
 **GET /featured-content**
@@ -280,13 +282,9 @@ Response:
   - react project with routes and boilerplate pages
 
 - Create migrations
-
 - Gather 15 sample contents with 5 different genres
-
 - Create seeds with sample content data
-
 - Deploy client and server projects so all commits will be reflected in production
-
 - Feature: Home page
 
   - CREATE GET /featured content
@@ -309,11 +307,15 @@ Response:
   - Create UI for liking comments
 
 - Feature: Create account
+
   - Create POST /users/register endpoint
   - Implement register page + form
+
 - Feature: Login
+
   - Create POST /users/login endpoint
   - Implement login page + form
+
 - Feature: Add Comment
 
   - Create POST /content/:id/comments
@@ -330,7 +332,6 @@ Response:
   - Client: Store JWT in local storage, include JWT on axios calls
 
 - Bug fixes
-
 - DEMO DAY
 
 ## Nice-to-haves
