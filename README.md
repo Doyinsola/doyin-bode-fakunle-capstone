@@ -35,7 +35,7 @@ When attempting to learn a new skill, the information out there can be overwhelm
 
 ### APIs
 
-- No external APIs will be used for the first sprint
+- No external APIs will be used for the first release
 
 ### Sitemap
 
