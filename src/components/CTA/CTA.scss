@@ -1,0 +1,13 @@
+@use "../../styles/partials/_variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.CTA__button {
+  background-color: $colour-black;
+  color: $colour-white;
+  border: 0;
+}
+.CTA__button:hover {
+  background-color: $colour-cloud;
+  color: $colour-graphite;
+  cursor: pointer;
+}
