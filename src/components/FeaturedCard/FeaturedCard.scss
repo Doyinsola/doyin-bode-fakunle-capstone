@@ -1,0 +1,22 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.featured-card {
+  background-color: $colour-white;
+  box-shadow: 0 2px 5px rgba($color: $colour-graphite, $alpha: 0.1);
+  border-radius: 0.5rem;
+  @include tablet {
+    width: 20rem;
+  }
+  &__img-container {
+    height: 20rem;
+  }
+  &__img {
+    border-radius: 0.5rem 0.5rem 0 0;
+    height: 100%;
+    width: 100%;
+  }
+}
+.featured-card:hover {
+  cursor: pointer;
+}
