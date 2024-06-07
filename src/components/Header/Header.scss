@@ -1,0 +1,53 @@
+@use "../../styles/partials/mixins" as *;
+
+.header {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 2.5rem;
+  }
+  @include desktop {
+    padding: 1rem 5rem;
+  }
+  &__logo-link {
+    display: flex;
+    justify-content: center;
+  }
+  &__logo {
+    height: 3rem;
+    width: 7.5rem;
+  }
+  &__logo,
+  &__search-container {
+    margin-bottom: 1rem;
+    @include tablet {
+      margin-bottom: 0;
+    }
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      flex-direction: row;
+      gap: 1rem;
+    }
+  }
+  &__search-container {
+    position: relative;
+  }
+  &__search-icon {
+    position: absolute;
+    right: 0.75rem;
+    top: 25%;
+  }
+  &__btn-container {
+    display: flex;
+    justify-content: space-evenly;
+    @include tablet {
+      gap: 1rem;
+    }
+  }
+}

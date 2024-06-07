@@ -1,10 +1,14 @@
-@use "../../styles/partials/_variables" as *;
+@use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
 .CTA__button {
   background-color: $colour-black;
   color: $colour-white;
   border: 0;
+  border-radius: 1rem;
+  height: 2.5rem;
+  width: fit-content;
+  padding: 0 2rem;
 }
 .CTA__button:hover {
   background-color: $colour-cloud;
