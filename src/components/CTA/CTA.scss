@@ -11,7 +11,8 @@
   padding: 0 2rem;
 }
 .CTA__button:hover {
-  background-color: $colour-cloud;
+  background-color: $colour-alabaster;
   color: $colour-graphite;
   cursor: pointer;
+  border: 0.0625rem solid $colour-graphite;
 }

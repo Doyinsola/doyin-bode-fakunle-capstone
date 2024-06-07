@@ -1,3 +1,6 @@
+@use "./styles/partials/variables" as *;
+@use "./styles/partials/globals" as *;
+
 .App {
   text-align: center;
 }
