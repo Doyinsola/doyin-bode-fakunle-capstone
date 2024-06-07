@@ -1,7 +1,16 @@
-@use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
+.form__fields {
+  height: 2.25rem;
+  width: 100%;
+  border-radius: 1rem;
+  padding: 1rem;
+  border: 0.0625rem solid $colour-graphite;
+  @include tablet {
+    height: 2.5rem;
+  }
+}
 .form__fields:focus {
   outline: 0.0625rem solid $colour-blue;
 }
