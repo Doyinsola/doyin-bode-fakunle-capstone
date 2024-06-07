@@ -1,0 +1,10 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.form__fields:focus {
+  outline: 0.0625rem solid $colour-blue;
+}
+.form__fields.error {
+  border: 0.0625rem solid $colour-red;
+}
