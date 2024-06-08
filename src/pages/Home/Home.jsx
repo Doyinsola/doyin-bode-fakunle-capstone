@@ -4,10 +4,10 @@ import CategoryContainer from "../../components/CategoriesContainer/CategoriesCo
 
 function Home() {
     return (
-        <div className="home">
+        <main className="home">
             <CategoryContainer />
             <FeaturedContainer />
-        </div>
+        </main>
     )
 }
 
