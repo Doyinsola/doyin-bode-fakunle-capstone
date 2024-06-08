@@ -1,11 +1,13 @@
 import './FeaturedContainer.scss';
-import FeaturedCard from "../FeaturedCard/FeaturedCard";
+import Card from "../Card/Card";
 import ApoImoApi from "../../classes/apo-imo-api";
 import { useEffect, useState } from "react";
 
 function FeaturedContainer() {
     const apoImoApi = new ApoImoApi();
     const [featuredContents, setFeaturedContents] = useState([]);
+    const serverURL = process.env.REACT_APP_SERVER_URL;
+
 
     useEffect(() => {
         async function getFeatureContent() {
@@ -24,9 +26,12 @@ function FeaturedContainer() {
     return (
         <div className="featured-container">
             {featuredContents.map((featuredContent) => (
-                <FeaturedCard
+                <Card
                     key={featuredContent.id}
                     featuredContent={featuredContent}
+                    imgSrc={`${serverURL}/${featuredContent.image_URL}`}
+                    title={featuredContent.name}
+                    about={featuredContent.about}
                 />
             ))}
         </div>)

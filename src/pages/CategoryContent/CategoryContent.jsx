@@ -1,5 +1,9 @@
+import CategoryContainer from "../../components/CategoriesContainer/CategoriesContainer";
+
 function CategoryContent() {
-    return (<div></div>)
+    return (<main>
+        <CategoryContainer />
+    </main>)
 }
 
 export default CategoryContent;

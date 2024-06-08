@@ -1,7 +1,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-.featured-card {
+.card {
   background-color: $colour-white;
   box-shadow: 0 2px 5px rgba($color: $colour-graphite, $alpha: 0.1);
   border-radius: 0.5rem;
@@ -17,6 +17,6 @@
     width: 100%;
   }
 }
-.featured-card:hover {
+.card:hover {
   cursor: pointer;
 }
