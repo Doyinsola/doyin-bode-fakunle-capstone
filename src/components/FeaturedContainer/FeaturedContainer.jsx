@@ -24,17 +24,16 @@ function FeaturedContainer() {
         return <p>Loading featured content...</p>
     }
     return (
-        <div className="featured-container">
+        <section className="featured-container">
             {featuredContents.map((featuredContent) => (
                 <Card
                     key={featuredContent.id}
-                    featuredContent={featuredContent}
                     imgSrc={`${serverURL}/${featuredContent.image_URL}`}
                     title={featuredContent.name}
                     about={featuredContent.about}
                 />
             ))}
-        </div>)
+        </section>)
 }
 
 export default FeaturedContainer;

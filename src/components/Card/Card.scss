@@ -5,11 +5,18 @@
   background-color: $colour-white;
   box-shadow: 0 2px 5px rgba($color: $colour-graphite, $alpha: 0.1);
   border-radius: 0.5rem;
-  @include tablet {
-    width: 20rem;
+
+  @include desktop {
+    width: 30rem;
   }
   &__img-container {
-    height: 20rem;
+    height: 25rem;
+    @include tablet {
+      height: 35rem;
+    }
+    @include desktop {
+      height: 25rem;
+    }
   }
   &__img {
     border-radius: 0.5rem 0.5rem 0 0;
