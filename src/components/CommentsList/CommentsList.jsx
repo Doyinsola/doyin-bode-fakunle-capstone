@@ -1,24 +1,13 @@
 import './CommentsList.scss';
 import Comment from "../Comment/Comment";
-import ApoImoApi from '../../classes/apo-imo-api';
-import { useEffect, useState } from 'react';
-function CommentsList({ contentID }) {
 
-    const apoImoApi = new ApoImoApi();
-    const [comments, setComments] = useState([]);
+function CommentsList({
+    comments,
+    likeComment,
+    deleteComment
+}) {
 
-    useEffect(() => {
-        async function getComments() {
-            try {
-                const response = await apoImoApi.getComments(contentID)
-                console.log(response.data)
-                setComments(response.data);
-            } catch (error) {
-                console.log("Error fetching comments", error)
-            }
-        }
-        getComments()
-    }, [contentID]);
+
 
     const reversedComments = [...comments].reverse();
 
@@ -34,6 +23,8 @@ function CommentsList({ contentID }) {
                 <Comment
                     key={comment.id}
                     comment={comment}
+                    likeComment={likeComment}
+                    deleteComment={deleteComment}
                 />
             ))}
         </div>

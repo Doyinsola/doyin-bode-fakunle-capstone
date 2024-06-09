@@ -25,8 +25,8 @@ export default class ApoImoApi {
     async getComments(contentID) {
         return axios.get(this.serverURL + "/api/content/" + contentID + "/comments")
     }
-    async postComments(contentID) {
-        return axios.post(this.serverURL + "/api/content/" + contentID + "/comments")
+    async postComments(contentID, newComment) {
+        return axios.post(this.serverURL + "/api/content/" + contentID + "/comments", newComment)
     }
     async likeComment(contentID, commentID) {
         return axios.patch(this.serverURL + "/api/content/" + contentID + "/comments/" + commentID + "/like")
