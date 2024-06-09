@@ -34,7 +34,7 @@ function ContentDetails() {
                 title={contentDetails.name} />
             <section className='content__details-continer'>
                 <DetailsContainer contentDetails={contentDetails} />
-                <CommentsContainer comments={contentDetails.comment} />
+                <CommentsContainer contentID={contentDetails.id} />
             </section>
         </main>
     )

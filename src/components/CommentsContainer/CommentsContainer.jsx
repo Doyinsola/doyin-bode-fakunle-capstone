@@ -1,18 +1,14 @@
-import './CommentsContainer.scss';
 import CommentForm from '../CommentForm/CommentForm';
 import CommentsList from "../CommentsList/CommentsList";
+import ApoImoApi from '../../classes/apo-imo-api';
+import { useEffect, useState } from 'react';
 
-function CommentsContainer({
-    comments
-}) {
+function CommentsContainer({ contentID }) {
     return (
         <section className="comments-container">
-            <p className="comments-container__comment-count sub-header">
-                {comments.length} Comments
-            </p>
             <CommentForm />
             <CommentsList
-                comments={comments} />
+                contentID={contentID} />
         </section>
     )
 }
