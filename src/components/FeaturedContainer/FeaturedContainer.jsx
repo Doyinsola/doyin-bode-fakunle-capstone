@@ -31,6 +31,7 @@ function FeaturedContainer() {
                     imgSrc={`${serverURL}/${featuredContent.image_URL}`}
                     title={featuredContent.name}
                     about={featuredContent.about}
+                    id={featuredContent.id}
                 />
             ))}
         </section>)
