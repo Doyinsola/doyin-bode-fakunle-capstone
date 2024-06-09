@@ -30,7 +30,8 @@ function ContentDetails() {
 
     return (
         <main className='content-details'>
-            <DetailsImage imgSrc={`serverURL/${contentDetails.image_URL}`} />
+            <DetailsImage imgSrc={`${serverURL}/${contentDetails.image_URL}`}
+                title={contentDetails.name} />
             <DetailsContainer contentDetails={contentDetails} />
             <CommentsContainer comments={contentDetails.comment} />
         </main>

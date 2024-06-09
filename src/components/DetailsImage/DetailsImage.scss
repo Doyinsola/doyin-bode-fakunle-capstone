@@ -1,0 +1,14 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.details-image {
+  height: 25rem;
+  @include tablet {
+    height: 35rem;
+  }
+  &__img {
+    border-radius: 0.5rem;
+    height: 100%;
+    width: 100%;
+  }
+}
