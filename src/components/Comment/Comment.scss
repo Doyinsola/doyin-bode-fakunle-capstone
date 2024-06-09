@@ -1,0 +1,47 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.comments {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid $colour-mercury;
+
+  &__avatar {
+    background-color: $colour-mercury;
+    border-radius: 50%;
+    width: 2.25rem;
+    height: 2.25rem;
+    @include tablet {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  &__container {
+    width: 85%;
+    text-align: left;
+    @include tablet {
+      width: 92%;
+    }
+  }
+  &__name {
+    font-weight: 600;
+  }
+  &__date {
+    color: $colour-silver;
+  }
+  &__comment-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__icons-container,
+  &__likes-container {
+    display: flex;
+    gap: 0.5rem;
+  }
+}

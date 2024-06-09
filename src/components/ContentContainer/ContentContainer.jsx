@@ -34,6 +34,7 @@ function ContentContainer({ categoryID }) {
                     imgSrc={`${serverURL}/${categoryContent.image_URL}`}
                     title={categoryContent.name}
                     about={categoryContent.about}
+                    id={categoryContent.id}
                 />
             ))}
         </section>

@@ -17,6 +17,8 @@ function App() {
           />
           <Route path='categories/:id' element={<CategoryContent />}
           />
+          <Route path='categories/category' element={<CategoryContent />}
+          />
           <Route path='/content/:id' element={<ContentDetails />}
           />
           <Route path='*' element={<NotFound />}
