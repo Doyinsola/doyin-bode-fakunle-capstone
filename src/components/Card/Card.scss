@@ -1,0 +1,32 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.card {
+  background-color: $colour-white;
+  box-shadow: 0 2px 5px rgba($color: $colour-graphite, $alpha: 0.1);
+  border-radius: 0.5rem;
+
+  @include desktop {
+    width: 30rem;
+  }
+  &__img-container {
+    height: 25rem;
+    @include tablet {
+      height: 35rem;
+    }
+    @include desktop {
+      height: 25rem;
+    }
+  }
+  &__img {
+    border-radius: 0.5rem 0.5rem 0 0;
+    height: 100%;
+    width: 100%;
+  }
+  &__link {
+    text-decoration: none;
+  }
+}
+.card:hover {
+  cursor: pointer;
+}

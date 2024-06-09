@@ -8,13 +8,13 @@ When attempting to learn a new skill, the information out there can be overwhelm
 
 ### Features
 
-- Users should be able to find content based on search criteria entered
 - Users should be able to find content by using the filter criteria provided
 - Users should be able to find the highest-rated content based on filter criteria
 - Users should be able to like content
+- Users should be able to add comments to content
+- Users should be able to like comments
+- Users should be able to delete comments
 - Users should be able to create an account
-- End-users should be able to login to into their account to manage saved content
-- Logged in end-user should be able to add comments to content
 
 ## Implementation
 
@@ -47,6 +47,10 @@ When attempting to learn a new skill, the information out there can be overwhelm
 ### Mockups
 
 [Link to mockups](https://www.figma.com/board/llbBH6qIP8jyZpmzIiTZNU/capstone-mockups?node-id=0-1)
+
+### Data
+
+[Link to database schema](https://drawsql.app/teams/doyinsolas-team/diagrams/capstone-db)
 
 ### Endpoints
 
@@ -276,11 +280,9 @@ Response:
 - Create server
 
   - express project with routing, with placeholder 200 responses
-
 - Create client
 
   - react project with routes and boilerplate pages
-
 - Create migrations
 - Gather 15 sample contents with 5 different genres
 - Create seeds with sample content data
@@ -290,57 +292,54 @@ Response:
   - CREATE GET /featured content
   - CREATE GET /categories
   - Create UI to display featured content and genres
-
 - Feature: Content by ID
 
   - Create GET /content/:id endpoint
   - Create UI to display content details
-
 - Feature: Like Content
 
   - Create PUT /content/:id/like
   - Add UI for liking content
-
 - Feature: Like a Comment
 
   - Create PUT /content/:contentId/comments/:commentId
   - Create UI for liking comments
-
 - Feature: Create account
 
   - Create POST /users/register endpoint
   - Implement register page + form
-
 - Feature: Login
 
   - Create POST /users/login endpoint
   - Implement login page + form
-
 - Feature: Add Comment
 
   - Create POST /content/:id/comments
   - Create Add comments Form
-
 - Feature: Delete Comment
 
   - Create DELETE /content/:contentId/comments/:commentId
   - Create UI for deleting comments
-
 - Feature: Implement JWT tokens
 
   - Server: Update expected requests / responses on protected endpoints
   - Client: Store JWT in local storage, include JWT on axios calls
-
 - Bug fixes
 - DEMO DAY
 
 ## Nice-to-haves
 
+- Users should be able to find content based on search criteria entered
 - Ability to add new learning resources the found to the site
 - End-user accounts
+
   - Suggested content based on liked content
+  - 
   - Delete only comments associated with their account
   - Remove likes from comments
+  - Should be able to login to into their account to manage saved content
+  - Logged in end-user should be able to add comments to content
 - Forgot password functionality
 - Resource creator/instructor account
+
   - Ability to pay for free content to be featured on the home page

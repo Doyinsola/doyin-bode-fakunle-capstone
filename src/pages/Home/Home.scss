@@ -1,0 +1,11 @@
+@use "../../styles/partials/mixins" as *;
+
+.home {
+  padding: 0 1rem;
+  @include tablet {
+    padding: 0 2.5rem;
+  }
+  @include desktop {
+    padding: 0 5rem;
+  }
+}
