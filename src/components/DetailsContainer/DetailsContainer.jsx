@@ -1,6 +1,6 @@
 function DetailsContainer() {
     return (
-        <section className="comments-container"></section>
+        <section className="details-container"></section>
     )
 }
 

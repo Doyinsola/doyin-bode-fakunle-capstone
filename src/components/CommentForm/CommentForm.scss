@@ -1,0 +1,47 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.comments {
+  &__form {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid $colour-mercury;
+    padding: 1rem 0;
+  }
+  &__btn-container {
+    position: relative;
+    @include tablet {
+      align-self: center;
+    }
+  }
+  &__btn-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 20%;
+  }
+  &__comment-button {
+    padding: 0 3rem;
+    background-color: $colour-graphite;
+    color: $colour-white;
+  }
+  &__heading {
+    color: $colour-silver;
+  }
+  &__actions {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 85%;
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 92%;
+    }
+  }
+  &__text-container {
+    @include tablet {
+      width: 75%;
+    }
+  }
+}

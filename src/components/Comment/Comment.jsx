@@ -1,4 +1,4 @@
-import "./Comments.scss";
+import "./Comment.scss";
 import deleteIcon from "../../assets/icons/icon-delete.svg";
 import likesIcon from '../../assets/icons/likes.svg';
 
