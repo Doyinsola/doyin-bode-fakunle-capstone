@@ -10,6 +10,7 @@ function ContentDetails() {
     const { id } = useParams();
     const apoImoApi = new ApoImoApi();
     const [contentDetails, setContentDetails] = useState([]);
+    const [refetchDetails, setRefetchDetails] = useState(false);
     const serverURL = process.env.REACT_APP_SERVER_URL;
 
     useEffect(() => {
@@ -21,8 +22,18 @@ function ContentDetails() {
                 console.log("Error fetching content details", error)
             }
         }
-        getContentDetails()
-    }, [id]);
+        getContentDetails();
+        setRefetchDetails(false);
+    }, [id, refetchDetails]);
+
+    const likeContent = async (event) => {
+        try {
+            await apoImoApi.likeContent(id);
+            setRefetchDetails(true);
+        } catch (error) {
+            console.log("There seems to be an issue,try again", error);
+        }
+    }
 
     if (contentDetails.length === 0) {
         return <p>Loading content details...</p>
@@ -33,7 +44,8 @@ function ContentDetails() {
             <DetailsImage imgSrc={`${serverURL}/${contentDetails.image_URL}`}
                 title={contentDetails.name} />
             <section className='content__details-continer'>
-                <DetailsContainer contentDetails={contentDetails} />
+                <DetailsContainer contentDetails={contentDetails}
+                    clickHandler={likeContent} />
                 <CommentsContainer contentID={contentDetails.id} />
             </section>
         </main>
