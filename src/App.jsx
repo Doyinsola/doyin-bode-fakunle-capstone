@@ -5,7 +5,8 @@ import ContentDetails from './pages/ContentDetails/ContentDetails';
 import CategoryContent from './pages/CategoryContent/CategoryContent';
 import NotFound from './pages/NotFound/NotFound';
 import Header from './components/Header/Header';
-
+import LogIn from './pages/LogIn/LogIn';
+import SignUp from './pages/SignUp/SignUp';
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
           />
           <Route path='/content/:id' element={<ContentDetails />}
           />
+          <Route path='/login' element={<LogIn />} />
+          <Route path='/signup' element={<SignUp />} />
           <Route path='*' element={<NotFound />}
           />
         </Routes>
