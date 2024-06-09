@@ -29,11 +29,13 @@ function ContentDetails() {
     }
 
     return (
-        <main className='content-details'>
+        <main className='content__details'>
             <DetailsImage imgSrc={`${serverURL}/${contentDetails.image_URL}`}
                 title={contentDetails.name} />
-            <DetailsContainer contentDetails={contentDetails} />
-            <CommentsContainer comments={contentDetails.comment} />
+            <section className='content__details-continer'>
+                <DetailsContainer contentDetails={contentDetails} />
+                <CommentsContainer comments={contentDetails.comment} />
+            </section>
         </main>
     )
 }

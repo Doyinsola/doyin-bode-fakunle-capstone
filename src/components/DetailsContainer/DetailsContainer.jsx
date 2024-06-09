@@ -8,7 +8,8 @@ function DetailsContainer({ contentDetails }) {
         <section className="details__container">
             <h2 className='details__name'>Name: {contentDetails.name}</h2>
             <p className='details__about'>About: {contentDetails.about}</p>
-            <a href={contentDetails.external_URL}>Link to {contentDetails.name}</a>
+            <a href={contentDetails.external_URL} target="_blank"
+                className='details__link'>Link to {contentDetails.name}</a>
             <p className='details__description'>Description: {contentDetails.description}</p>
             <div className='details__categories'>
                 {contentDetails.Categories.map((category, index) => (
