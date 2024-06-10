@@ -37,10 +37,10 @@ export default class ApoImoApi {
     async signUp() {
         return axios.post(this.serverURL + "/api/user/register")
     }
-    async login() {
-        return axios.post(this.serverURL + "/api/user/login")
+    async login(user) {
+        return axios.post(this.serverURL + "/api/user/login", user)
     }
     async getUserProfile() {
-        return axios.gett(this.serverURL + "/api/user/profile")
+        return axios.get(this.serverURL + "/api/user/profile")
     }
 }
