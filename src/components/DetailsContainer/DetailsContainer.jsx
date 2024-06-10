@@ -18,12 +18,8 @@ function DetailsContainer({
             <p className='details__description'>Description: {contentDetails.description}</p>
             <div className='details__categories'>
                 {contentDetails.Categories.map((category, index) => (
-                    <Link to={`/categories/${category}`}
-                        className='details__link'
-                        key={index}>
-                        <CTA componentClass="details__category"
-                            componentText={category} />
-                    </Link>
+                    <CTA key={index} componentClass="details__category"
+                        componentText={category} />
                 ))}
             </div>
             <div className="details__likes-container">
