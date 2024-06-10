@@ -1,5 +1,13 @@
+@use "../../styles/partials/variables" as *;
+
 .categories-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
+  gap: 1rem;
   margin-bottom: 2rem;
+  &__category.active {
+    background-color: $colour-black;
+    color: $colour-white;
+  }
 }
