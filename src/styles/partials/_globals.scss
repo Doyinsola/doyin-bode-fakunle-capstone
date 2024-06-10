@@ -25,6 +25,15 @@ button {
 body {
   background-color: $colour-alabaster;
 }
+main {
+  padding: 1rem;
+  @include tablet {
+    padding: 2.5rem;
+  }
+  @include desktop {
+    padding: 2.5rem 5rem;
+  }
+}
 .page-header {
   font-size: 2.0625rem;
   line-height: 2.75rem;

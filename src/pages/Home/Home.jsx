@@ -1,4 +1,3 @@
-import './Home.scss';
 import FeaturedContainer from "../../components/FeaturedContainer/FeaturedContainer";
 import CategoryContainer from "../../components/CategoriesContainer/CategoriesContainer";
 

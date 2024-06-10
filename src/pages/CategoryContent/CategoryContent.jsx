@@ -1,4 +1,3 @@
-import './CategoryContent.scss';
 import { useParams } from "react-router-dom";
 import CategoryContainer from "../../components/CategoriesContainer/CategoriesContainer";
 import ContentContainer from "../../components/ContentContainer/ContentContainer";
