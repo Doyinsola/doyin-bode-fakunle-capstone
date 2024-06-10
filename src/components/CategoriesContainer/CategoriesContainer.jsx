@@ -8,6 +8,10 @@ function CategoriesContainer() {
 
     const apoImoApi = new ApoImoApi();
     const [categories, setCategories] = useState([]);
+    const [isActive, setIsActive] = useState('');
+    const clickHandler = (url) => {
+        setIsActive(url);
+    }
 
     useEffect(() => {
         async function getCategories() {
@@ -27,9 +31,9 @@ function CategoriesContainer() {
     return (
         <section className="categories-container">
             {categories.map((category) => (
-                <Link to={`/categories/${category.category_id}`}
+                <Link onClick={() => clickHandler(`/categories/${category.category_id}`)} to={`/categories/${category.category_id}`}
                     key={category.category_id}>
-                    <CTA componentClass="categories-container__category"
+                    <CTA componentClass={`${isActive === `/categories/${category.category_id}` ? "categories-container__category active" : "categories-container__category"}`}
                         componentText={category.category_name} />
                 </Link>
             ))}

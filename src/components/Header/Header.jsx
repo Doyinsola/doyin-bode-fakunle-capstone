@@ -26,8 +26,12 @@ function Header() {
                     />
                 </div>
                 <div className="header__btn-container">
-                    <CTA componentClass="header__login-btn" componentText="Log in" />
-                    <CTA componentClass="header__signin-btn" componentText="Sign up" />
+                    <Link to='/login'>
+                        <CTA componentClass="header__login-btn" componentText="Log in" />
+                    </Link>
+                    <Link to='/signup'>
+                        <CTA componentClass="header__signin-btn" componentText="Sign up" />
+                    </Link>
                 </div>
             </div>
         </header>

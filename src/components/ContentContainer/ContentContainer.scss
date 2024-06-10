@@ -6,7 +6,7 @@
   flex-direction: column;
   gap: 2rem;
   @include desktop {
-    flex-direction: row;
-    justify-content: space-between;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
   }
 }
