@@ -9,12 +9,12 @@ When attempting to learn a new skill, the information out there can be overwhelm
 ### Features
 
 - Users should be able to find content by using the filter criteria provided
-- Users should be able to find the highest-rated content based on filter criteria
 - Users should be able to like content
 - Users should be able to add comments to content
 - Users should be able to like comments
 - Users should be able to delete comments
 - Users should be able to create an account
+- Users should be able to log in to their account
 
 ## Implementation
 
@@ -31,7 +31,7 @@ When attempting to learn a new skill, the information out there can be overwhelm
 - Server libraries:
   - knex
   - express
-  - password hashing
+  - password hashing - bcrypt
 
 ### APIs
 
@@ -39,7 +39,8 @@ When attempting to learn a new skill, the information out there can be overwhelm
 
 ### Sitemap
 
-- Home page
+- Home page - featured content
+- Category Content page
 - Content Details page
 - Register
 - Login
@@ -85,54 +86,29 @@ Response:
 
 Parameters:
 
-- id: content id, probably UUID
+- id: content id
 
 Response:
 
-```
 {
-    "id": 1,
-    "name": "Learn React",
-    "about": "summary about content",
-    "likes": 10,
-    "image": "abc.png",
-    "featured": true,
-    "category":["category 1","category 2"],
-    "details":"detailed explanation of content",
-    "URL":"external link to content"
-    "comments": [
-              {
-                  "name": "Noah Duncan",
-                  "comment": "This content provides insights into the future of AI",
-                  "id": "3",
-                  "likes": 0,
-                  "timestamp": 1691731062000
-              },
-              {
-                  "name": "Terry Wong",
-                  "comment": "This content is a fantastic overview of the AI landscape.",
-                  "id": "2",
-                  "likes": 0,
-                  "timestamp": 1691644662000
-              },
-              {
-                  "name": "Janice Rodriguez",
-                  "comment": " My go-to source for staying updated on tech trends. ",
-                  "id": "1",
-                  "likes": 1,
-                  "timestamp": 1691558262000
-              }
-          ]
+"id": 1,
+"name": "Learn React",
+"about": "summary about content",
+"likes": 10,
+"image": "abc.png",
+"featured": true,
+"category":["category 1","category 2"],
+"description":"detailed explanation of content",
+"URL":"external link to content"
 }
-```
 
-**PUT /content/:id/like**
+**PATCH /content/:id/like**
 
 - Users can like content, likes incremented by 1
 
 Parameters:
 
-- id: content id, probably UUID
+- id: content id
 
 Response:
 
@@ -140,62 +116,75 @@ Response:
 {
     "id": 1,
     "name": "Learn React",
-    "about": "summary about content",
     "likes": 11,
-    "image": "abc.png",
-    "featured": true,
-    "category":["category 1","category 2"]
+    "updated_at": "2024-06-10T02:24:03.000Z"
 },
+```
+
+**GET /content/:id/comments**
+
+- Get all comments for a particular content
+
+Parameters:
+
+- id: contentId
+
+Response:
+
+```
+[
+    {
+        "name": "Gregory House",
+        "comment_text": "Took the course to prove I can learn anything",
+        "id": 3,
+        "likes": 0,
+        "timestamp": "2024-06-09T17:47:36.000Z"
+    },
+    ...
+]
 ```
 
 **POST /content/:id/comments**
 
-- Logged in user can add comment to content
+- user can add comment to content
 
 Parameters:
 
-- id: content id, probably UUID
-- token: JWT of the logged in user
+- id: content id
 - newComment: comment posted by user
 
 Response:
 
 ```
 {
-    "name": "Trudy Jankowski",
-    "comment": "I really enjoyed this video! Thanks for posting",
-    "id": 4,
-    "timestamp": 1705084427000
-},
+        "name": "Gregory House",
+        "comment_text": "I have learnt so much!",
+        "id": 9,
+        "likes": 0,
+        "timestamp": "2024-06-10T02:27:33.000Z"
+}
 ```
 
 **DELETE /content/:contentId/comments/:commentId**
 
 - Logged in user can delete a comment
   Parameters:
-- id: content id, probably UUID
-- token: JWT of the logged in user
+- id: content id
 
 Response:
 
 ```
-{
-    "name": "Trudy Jankowski",
-    "comment": "I really enjoyed this video! Thanks for posting",
-    "id": 4,
-    "timestamp": 1705084427000
-},
+status: 204 No Content
 ```
 
-**PUT /content/:contentId/comments/:commentId/like**
+**PATCH /content/:contentId/comments/:commentId/like**
 
 - Users can like a comment
 
 Parameters:
 
-- id: Café id
-- token: JWT of the logged in user
-- rating: Number Rating out of 5 in 0.5 increments
+- contentId
+- commentId
 
 Response:
 
@@ -209,13 +198,50 @@ Response:
 }
 ```
 
-**GET /content/:category**
+**GET /categories**
+
+- Filter and return only categories with content attached
+
+Response:
+
+```
+[
+    {
+        "category_id": 1,
+        "category_name": "Programming"
+    },
+    {
+        "category_id": 2,
+        "category_name": "Python"
+    },
+    ...
+]
+```
+
+**GET /categories/:categoryId**
+
+- Get a particular category by id
+
+Parameters:
+
+- categoryId
+
+Response:
+
+```
+{
+    "category_id": 1,
+    "category_name": "Programming"
+}
+```
+
+**GET /categories/:categoryId/content**
 
 - Filter and return only contents belonging to a particular category
 
 Parameters:
 
-- Category === :category
+- categoryId
 
 Response:
 
@@ -223,12 +249,12 @@ Response:
 [
     {
         "id": 1,
-        "name": "Learn React",
-        "about": "summary about content",
-        "likes": 10,
-        "image": "abc.png",
-        "featured": true,
-        "category":["category 1","category 2"]
+        "name": "Introduction to Python Programming",
+        "about": "Get started writing Python with this introductory course.",
+        "likes": 15,
+        "image_URL": "images/programming.png",
+        "featured": 1,
+        "category_name": "Programming"
     },
     ...
 ]
@@ -240,16 +266,14 @@ Response:
 
 Parameters:
 
+- first_name: User's first name
+- last_name: User's last name
 - email: User's email
 - password: User's provided password
 
 Response:
 
-```
-{
-    "token": "token_value"
-}
-```
+message: User registered successfully!
 
 **POST /users/login**
 
@@ -264,27 +288,28 @@ Response:
 
 ```
 {
-`    "token": "token_value"
-`}
+    "token": "token_value"
+}
 ```
 
 ### Auth
 
 - JWT auth
-  - Before adding auth, all API requests requiring auth will use a dummy id
   - To be added after core features have first been implemented
-  - Store JWT in localStorage to be removed when the user logs out
+  - Store JWT in SessionStorage to be removed when the user logs out
 
 ## Roadmap
 
 - Create server
 
   - express project with routing, with placeholder 200 responses
+
 - Create client
 
   - react project with routes and boilerplate pages
+
 - Create migrations
-- Gather 15 sample contents with 5 different genres
+- Gather sample content with a least 5 different categories
 - Create seeds with sample content data
 - Deploy client and server projects so all commits will be reflected in production
 - Feature: Home page
@@ -292,38 +317,47 @@ Response:
   - CREATE GET /featured content
   - CREATE GET /categories
   - Create UI to display featured content and genres
+
 - Feature: Content by ID
 
   - Create GET /content/:id endpoint
   - Create UI to display content details
+
 - Feature: Like Content
 
   - Create PUT /content/:id/like
   - Add UI for liking content
+
 - Feature: Like a Comment
 
   - Create PUT /content/:contentId/comments/:commentId
   - Create UI for liking comments
-- Feature: Create account
 
-  - Create POST /users/register endpoint
-  - Implement register page + form
-- Feature: Login
-
-  - Create POST /users/login endpoint
-  - Implement login page + form
 - Feature: Add Comment
 
   - Create POST /content/:id/comments
   - Create Add comments Form
+
 - Feature: Delete Comment
 
   - Create DELETE /content/:contentId/comments/:commentId
   - Create UI for deleting comments
+
+- Feature: Create account
+
+  - Create POST /users/register endpoint
+  - Implement register page + form
+
+- Feature: Login
+
+  - Create POST /users/login endpoint
+  - Implement login page + form
+
 - Feature: Implement JWT tokens
 
   - Server: Update expected requests / responses on protected endpoints
   - Client: Store JWT in local storage, include JWT on axios calls
+
 - Bug fixes
 - DEMO DAY
 
@@ -333,13 +367,21 @@ Response:
 - Ability to add new learning resources the found to the site
 - End-user accounts
 
-  - Suggested content based on liked content
-  - 
   - Delete only comments associated with their account
   - Remove likes from comments
   - Should be able to login to into their account to manage saved content
   - Logged in end-user should be able to add comments to content
+
 - Forgot password functionality
 - Resource creator/instructor account
 
   - Ability to pay for free content to be featured on the home page
+
+## Installation Instructions
+
+- Git clone the project to get it locally
+- Run `npm install` to get install dependencies
+- Set up .env file:
+  - include link to backend server `REACT_APP_SERVER_URL=http://localhost:8080` (port may be different depencing on what you have set up)
+- Run `npm start` to start the app
+- Data may not be populated in backend server is not running, [link](https://github.com/Doyinsola/doyin-bode-fakunle-capstone-api/blob/main/README.md) to setting up backend

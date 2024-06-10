@@ -18,8 +18,10 @@ function Card({
                         alt={`image for ${title}`}
                     />
                 </div>
-                <h2 className='card__title'>{title}</h2>
-                <p className='card__about'>{about}</p>
+                <div className='card__text-container'>
+                    <h2 className='card__title'>{title}</h2>
+                    <p className='card__about'>{about}</p>
+                </div>
             </div>
         </Link>
     )

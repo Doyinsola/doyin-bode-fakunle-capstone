@@ -6,7 +6,7 @@
   box-shadow: 0 2px 5px rgba($color: $colour-graphite, $alpha: 0.1);
   border-radius: 0.5rem;
   @include desktop {
-    width: 30rem;
+    width: 25rem;
   }
   &__img-container {
     height: 25rem;
@@ -24,6 +24,9 @@
   }
   &__link {
     text-decoration: none;
+  }
+  &__text-container {
+    padding: 1rem;
   }
 }
 .card:hover {
