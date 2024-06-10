@@ -34,8 +34,8 @@ export default class ApoImoApi {
     async deleteComment(contentID, commentID) {
         return axios.delete(this.serverURL + "/api/content/" + contentID + "/comments/" + commentID)
     }
-    async signUp() {
-        return axios.post(this.serverURL + "/api/user/register")
+    async signUp(user) {
+        return axios.post(this.serverURL + "/api/user/register", user)
     }
     async login(user) {
         return axios.post(this.serverURL + "/api/user/login", user)

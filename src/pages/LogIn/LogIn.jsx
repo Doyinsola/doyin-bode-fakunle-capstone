@@ -26,6 +26,8 @@ function LogIn() {
         }
         return true;
     };
+
+    console.log(isFormValid());
     const handleSubmit = (event) => {
         event.preventDefault();
         if (isFormValid()) {
@@ -60,11 +62,11 @@ function LogIn() {
 
     return (
         <main className='login'>
-            <section onSubmit={handleSubmit}
+            <section
                 className='login__container'>
                 <h1 className='login__heading'>Welcome Back!</h1>
                 <ToastContainer />
-                <form className='login__form'>
+                <form onSubmit={handleSubmit} className='login__form'>
                     <div className='login__email-container'>
                         <h2 className='login__email labels'>Email</h2>
                         <FormField
