@@ -384,4 +384,4 @@ Response:
 - Set up .env file:
   - include link to backend server `REACT_APP_SERVER_URL=http://localhost:8080` (port may be different depencing on what you have set up)
 - Run `npm start` to start the app
-- Data may not be populated in backend server is not running, link to setting up backend
+- Data may not be populated in backend server is not running, [link](https://github.com/Doyinsola/doyin-bode-fakunle-capstone-api/blob/main/README.md) to setting up backend
