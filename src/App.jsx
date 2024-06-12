@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound/NotFound';
 import Header from './components/Header/Header';
 import LogIn from './pages/LogIn/LogIn';
 import SignUp from './pages/SignUp/SignUp';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path='*' element={<NotFound />}
           />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );
