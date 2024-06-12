@@ -8,7 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function LogIn() {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const initialValue = {
         email: "",
         password: "",
@@ -27,7 +27,6 @@ function LogIn() {
         return true;
     };
 
-    console.log(isFormValid());
     const handleSubmit = (event) => {
         event.preventDefault();
         if (isFormValid()) {
@@ -52,7 +51,7 @@ function LogIn() {
             }
             login();
             event.target.reset();
-            setTimeout(() => navigate("/"), 3000);
+            setTimeout(() => navigate("/user/profile"), 3000);
         } else {
             toast.error("Unable to login, there are errors in the form", {
                 position: "top-center",
