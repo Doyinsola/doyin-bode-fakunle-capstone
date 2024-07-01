@@ -12,7 +12,7 @@ import Profile from './pages/Profile/Profile';
 import { useEffect, useState } from 'react';
 
 function App() {
-  const [isLogggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     if (sessionStorage.getItem("token") !== null) {
@@ -30,11 +30,11 @@ function App() {
           />
           <Route path='categories/category' element={<CategoryContent />}
           />
-          <Route path='/content/:id' element={<ContentDetails />}
+          <Route path='/content/:id' element={isLoggedIn ? <ContentDetails /> : <Navigate to="/login" />}
           />
           <Route path='/login' element={<LogIn />} />
           <Route path='/signup' element={<SignUp />} />
-          <Route path='/user/profile' element={isLogggedIn ? <Profile /> : <Navigate to="/login" />} />
+          <Route path='/user/profile' element={isLoggedIn ? <Profile /> : ""} />
           <Route path='*' element={<NotFound />}
           />
         </Routes>
