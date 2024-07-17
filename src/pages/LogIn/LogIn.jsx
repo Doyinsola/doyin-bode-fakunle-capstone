@@ -2,7 +2,7 @@ import './LogIn.scss';
 import FormField from '../../components/FormField/FormField';
 import CTA from '../../components/CTA/CTA';
 import ApoImoApi from '../../classes/apo-imo-api';
-import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from 'react';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
