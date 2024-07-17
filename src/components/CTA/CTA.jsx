@@ -1,8 +1,13 @@
 import './CTA.scss';
 
-function CTA({ componentClass, componentText }) {
+function CTA({
+    componentClass,
+    componentText,
+    eventHandler,
+}) {
     return (
         <button
+            onClick={eventHandler}
             className={componentClass + ' CTA__button'}> {componentText}
         </button>
     )

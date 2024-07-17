@@ -1,5 +1,5 @@
 import './App.scss';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import ContentDetails from './pages/ContentDetails/ContentDetails';
 import CategoryContent from './pages/CategoryContent/CategoryContent';
@@ -9,8 +9,16 @@ import LogIn from './pages/LogIn/LogIn';
 import SignUp from './pages/SignUp/SignUp';
 import Footer from './components/Footer/Footer';
 import Profile from './pages/Profile/Profile';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("token") !== null) {
+      setIsLoggedIn(true)
+    }
+  }, [])
   return (
     <div className="App">
       <BrowserRouter>
@@ -22,11 +30,11 @@ function App() {
           />
           <Route path='categories/category' element={<CategoryContent />}
           />
-          <Route path='/content/:id' element={<ContentDetails />}
+          <Route path='/content/:id' element={isLoggedIn ? <ContentDetails /> : <Navigate to="/login" />}
           />
           <Route path='/login' element={<LogIn />} />
           <Route path='/signup' element={<SignUp />} />
-          <Route path='/user/profile' element={<Profile />} />
+          <Route path='/user/profile' element={isLoggedIn ? <Profile /> : ""} />
           <Route path='*' element={<NotFound />}
           />
         </Routes>

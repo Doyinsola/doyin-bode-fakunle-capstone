@@ -26,7 +26,7 @@ function ContentDetails() {
         setRefetchDetails(false);
     }, [id, refetchDetails]);
 
-    const likeContent = async (event) => {
+    const likeContent = async () => {
         try {
             await apoImoApi.likeContent(id);
             setRefetchDetails(true);

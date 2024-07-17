@@ -2,7 +2,7 @@ import './Footer.scss';
 
 function Footer() {
     return (
-        <footer classname='footer'>
+        <footer className='footer'>
             <div className='footertext'>© Apó Imọ. All Rights Reserved.</div>
         </footer>
     );
